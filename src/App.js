@@ -2,6 +2,7 @@ import "./App.css";
 import { Home } from "./components/Home";
 import { Route, Switch } from "react-router-dom";
 import { Navbar } from "./components/navbar/Navbar";
+import { Dashboard } from "./components/Dashboard";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         <Route exact path="/login">
           {" "}
           Login{" "}
+        </Route>
+        <Route path="/dashboard">
+          <Dashboard />
         </Route>
         <Route>
           <h1>Page not found</h1>
