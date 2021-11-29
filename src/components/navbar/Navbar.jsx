@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Navbar = () => {
   return (
     <div>
@@ -7,9 +9,9 @@ export const Navbar = () => {
           data-toggle="sticky-onscroll"
         >
           <div className="container">
-            <a className="navbar-brand" href="#">
-              Navbar
-            </a>
+            <Link className="navbar-brand" to="/">
+              Book My Show
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -28,39 +30,24 @@ export const Navbar = () => {
             >
               <ul className="navbar-nav pull-right">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <Link className="nav-link active" to="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Services
-                  </a>
+                  <Link className="nav-link" to="/about">
+                    about
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Our Work
-                  </a>
+                  <Link className="nav-link" to="/newshows">
+                    New Shows
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Pricing
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    About
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Contact
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="btn btn-primary" href="#">
-                    GET A QUOTE
-                  </a>
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
                 </li>
               </ul>
             </div>
