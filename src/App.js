@@ -3,6 +3,7 @@ import { Home } from "./components/Home";
 import { Route, Switch } from "react-router-dom";
 import { Navbar } from "./components/navbar/Navbar";
 import { Dashboard } from "./components/Dashboard";
+import { Login } from "./components/Login";
 
 function App() {
   return (
@@ -22,8 +23,7 @@ function App() {
           New Shows
         </Route>
         <Route exact path="/login">
-          {" "}
-          Login{" "}
+          <Login />
         </Route>
         <Route path="/dashboard">
           <Dashboard />
