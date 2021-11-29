@@ -1,6 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
+import { changeAuth } from "../redux/actions";
+import { Link, Redirect } from "react-router-dom";
+import { FormLogin } from "./utils/Form";
 export const Login = () => {
+  const AuthstateNow = useSelector((state) => state.AuthReducer);
+  console.log("AuthstateNow:", AuthstateNow);
+  const disp = useDispatch();
+
   const [email, setEmail] = useState("");
 
   const handleEmailChange = (event) => {
@@ -22,39 +31,22 @@ export const Login = () => {
       body: JSON.stringify({ email, password }),
     };
     fetch(url, requestOptions)
-      .then((response) => console.log(response))
+      .then((response) => disp(changeAuth(true)))
       .catch((error) => console.log("Form submit error", error));
   };
-  return (
+  return AuthstateNow === true ? (
     <div>
-      <h1>Login Form</h1>
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="type your email"
-            onChange={handleEmailChange}
-            value={email}
-            className="form-control"
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="type your password"
-            onChange={handlePasswordChange}
-            value={password}
-            className="form-control"
-          />
-          <br />
-          <button className="btn btn-primary" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+      <button className="btn btn-success">
+        <Link to="/dashboard"> Go To dashboard</Link>
+      </button>
     </div>
+  ) : (
+    <FormLogin
+      handleSubmit={handleSubmit}
+      handleEmailChange={handleEmailChange}
+      email={email}
+      handlePasswordChange={handlePasswordChange}
+      password={password}
+    />
   );
 };

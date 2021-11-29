@@ -1,6 +1,6 @@
 import { LOGIN } from "../actions/ActionType";
 
-const initial = false;
+const initial = true;
 
 export const AuthReducer = (state = initial, action) => {
   switch (action.type) {
